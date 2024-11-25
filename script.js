@@ -2,29 +2,31 @@ const canvas = document.getElementById("heartCanvas");
 const ctx = canvas.getContext("2d");
 const kValueDisplay = document.getElementById("kValue");
 
-// Set canvas dimensions
-canvas.width = canvas.parentElement.offsetWidth;
-canvas.height = canvas.parentElement.offsetHeight;
+// Dynamically adjust canvas size to container
+function resizeCanvas() {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+}
 
-const width = canvas.width;
-const height = canvas.height;
+resizeCanvas(); // Initial resize
 
 let k = 0; // Initial value of k
 
+// Draw axes and gridlines
 function drawAxes() {
     ctx.strokeStyle = "white";
     ctx.lineWidth = 1;
 
     // Draw x-axis
     ctx.beginPath();
-    ctx.moveTo(0, height / 2);
-    ctx.lineTo(width, height / 2);
+    ctx.moveTo(0, canvas.height / 2);
+    ctx.lineTo(canvas.width, canvas.height / 2);
     ctx.stroke();
 
     // Draw y-axis
     ctx.beginPath();
-    ctx.moveTo(width / 2, 0);
-    ctx.lineTo(width / 2, height);
+    ctx.moveTo(canvas.width / 2, 0);
+    ctx.lineTo(canvas.width / 2, canvas.height);
     ctx.stroke();
 }
 
@@ -33,16 +35,16 @@ function drawHeart(kValue) {
     ctx.strokeStyle = "#ff0066";
     ctx.lineWidth = 2;
 
-    const scale = Math.min(width, height) / 6; // Reduced scale for better fit
+    const scale = Math.min(canvas.width, canvas.height) / 6; // Adjusted scale for better fit
 
     ctx.beginPath();
     for (let x = -2; x <= 2; x += 0.01) {
-        const xScaled = x * scale + width / 2;
+        const xScaled = x * scale + canvas.width / 2;
         const yValue =
             Math.pow(Math.abs(x), 2 / 3) +
             0.9 * Math.sin(kValue * x) * Math.sqrt(3 - x * x);
 
-        const yScaled = -yValue * scale + height / 2;
+        const yScaled = -yValue * scale + canvas.height / 2;
 
         if (x === -2) {
             ctx.moveTo(xScaled, yScaled);
@@ -55,7 +57,7 @@ function drawHeart(kValue) {
 
 // Animation loop
 function animate() {
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     drawAxes(); // Draw axes
     drawHeart(k); // Draw heart graph
@@ -69,6 +71,12 @@ function animate() {
         requestAnimationFrame(animate); // Smooth animation
     }
 }
+
+// Listen for window resize to adjust canvas
+window.addEventListener("resize", () => {
+    resizeCanvas();
+    animate(); // Re-render the animation on resize
+});
 
 // Start animation
 animate();
