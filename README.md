@@ -58,7 +58,7 @@ Heart-Equation-Animation/
 
 ## **Preview**
 
-![Heart Equation Animation](https://via.placeholder.com/800x400.png?text=Preview+Image)
+[Heart Equation Animation](shashwat-19.github.io/Heart-Equation/)
 
 ---
 
@@ -75,16 +75,3 @@ Heart-Equation-Animation/
 
 ---
 
-## **Contributing**
-
-Contributions are welcome! Feel free to open issues or submit pull requests to improve the project.
-
----
-
-## **License**
-
-This project is licensed under the MIT License.
-
---- 
-
-Let me know if you want any further additions!
