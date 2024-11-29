@@ -5,7 +5,7 @@ const kValueDisplay = document.getElementById("kValue");
 // Dynamically adjust canvas size
 function resizeCanvas() {
     canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
+    canvas.height = canvas.clientHeight - 30; // Adjust for top padding
 }
 
 resizeCanvas(); // Initial resize
@@ -34,8 +34,8 @@ function drawHeart(kValue) {
     ctx.strokeStyle = "#ff0066";
     ctx.lineWidth = 2;
 
-    // Dynamically calculate scale (reduced further for smaller heart)
-    const scale = Math.min(canvas.width, canvas.height) / 4.5; // Smaller scale for better fitting
+    // Dynamically calculate scale (further reduced for smaller heart)
+    const scale = Math.min(canvas.width, canvas.height) / 5; // Smaller scale for smaller heart
 
     ctx.beginPath();
     for (let x = -2; x <= 2; x += 0.01) {

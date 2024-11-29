@@ -17,6 +17,8 @@ body {
     max-width: 500px; /* Smaller max size for better fitting */
     aspect-ratio: 1; /* Keep square aspect ratio */
     margin: auto;
+    padding-top: 30px; /* Add padding from the top */
+    box-sizing: border-box;
 }
 
 /* Canvas Styling */
