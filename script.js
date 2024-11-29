@@ -12,7 +12,6 @@ resizeCanvas(); // Initial resize
 
 let k = 0; // Initial value of k
 
-// Draw axes and gridlines
 function drawAxes() {
     ctx.strokeStyle = "white";
     ctx.lineWidth = 1;
@@ -39,12 +38,12 @@ function drawHeart(kValue) {
 
     ctx.beginPath();
     for (let x = -2; x <= 2; x += 0.01) {
-        const xScaled = x * scale + canvas.width / 2; // Center the graph horizontally
+        const xScaled = x * scale + canvas.width / 2; // Center horizontally
         const yValue =
             Math.pow(Math.abs(x), 2 / 3) +
             0.9 * Math.sin(kValue * x) * Math.sqrt(3 - x * x);
 
-        const yScaled = -yValue * scale + canvas.height / 2; // Center the graph vertically
+        const yScaled = -yValue * scale + canvas.height / 2; // Center vertically
 
         if (x === -2) {
             ctx.moveTo(xScaled, yScaled);

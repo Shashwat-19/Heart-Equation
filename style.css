@@ -8,13 +8,14 @@ body {
     background: black;
     color: white;
     font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
 }
 
 /* Responsive Container */
 .container {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Limits the canvas size for larger screens */
+    max-width: 900px; /* Adjust max width for large screens */
     aspect-ratio: 1; /* Maintains a square canvas */
     margin: 0 auto;
 }
@@ -25,17 +26,37 @@ canvas {
     height: 100%;
     display: block;
     background: black;
-    border: 1px solid white;
     box-sizing: border-box;
 }
 
 /* Equation Display */
 .equation {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     color: pink;
     font-size: 1rem;
+}
+
+/* iPhone 15 Pro Optimization */
+@media screen and (max-width: 1179px) and (orientation: portrait) {
+    .container {
+        max-width: 95%; /* Utilize most of the screen width in portrait mode */
+    }
+
+    .equation {
+        font-size: 0.9rem; /* Slightly smaller font for better fit */
+    }
+}
+
+@media screen and (max-width: 2556px) and (orientation: landscape) {
+    .container {
+        max-height: 85%; /* Adjust for smaller height in landscape mode */
+    }
+
+    .equation {
+        font-size: 1.2rem; /* Increase font size for better readability */
+    }
 }
