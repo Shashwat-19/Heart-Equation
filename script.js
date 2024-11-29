@@ -12,7 +12,6 @@ resizeCanvas(); // Initial resize
 
 let k = 0; // Initial value of k
 
-// Draw axes and gridlines
 function drawAxes() {
     ctx.strokeStyle = "white";
     ctx.lineWidth = 1;
@@ -35,8 +34,8 @@ function drawHeart(kValue) {
     ctx.strokeStyle = "#ff0066";
     ctx.lineWidth = 2;
 
-    // Dynamically calculate scale
-    const scale = Math.min(canvas.width, canvas.height) / 3.5; // Reduced for margin within frame
+    // Dynamically calculate scale (reduced further for smaller heart)
+    const scale = Math.min(canvas.width, canvas.height) / 4.5; // Smaller scale for better fitting
 
     ctx.beginPath();
     for (let x = -2; x <= 2; x += 0.01) {

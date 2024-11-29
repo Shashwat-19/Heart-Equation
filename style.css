@@ -14,7 +14,7 @@ body {
 .container {
     position: relative;
     width: 90%; /* Adjust width for responsiveness */
-    max-width: 600px; /* Max size for larger screens */
+    max-width: 500px; /* Smaller max size for better fitting */
     aspect-ratio: 1; /* Keep square aspect ratio */
     margin: auto;
 }
@@ -31,17 +31,17 @@ canvas {
 /* Equation Display */
 .equation {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     color: pink;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* Responsive Font Adjustments */
 @media screen and (max-width: 768px) {
     .equation {
-        font-size: 0.8rem; /* Slightly smaller font for smaller devices */
+        font-size: 0.7rem; /* Slightly smaller font for smaller devices */
     }
 }
