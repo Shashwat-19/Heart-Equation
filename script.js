@@ -2,7 +2,7 @@ const canvas = document.getElementById("heartCanvas");
 const ctx = canvas.getContext("2d");
 const kValueDisplay = document.getElementById("kValue");
 
-// Dynamically adjust canvas size to container
+// Dynamically adjust canvas size
 function resizeCanvas() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
@@ -12,6 +12,7 @@ resizeCanvas(); // Initial resize
 
 let k = 0; // Initial value of k
 
+// Draw axes and gridlines
 function drawAxes() {
     ctx.strokeStyle = "white";
     ctx.lineWidth = 1;
@@ -34,7 +35,8 @@ function drawHeart(kValue) {
     ctx.strokeStyle = "#ff0066";
     ctx.lineWidth = 2;
 
-    const scale = Math.min(canvas.width, canvas.height) / 4; // Adjusted scale for better centering
+    // Dynamically calculate scale
+    const scale = Math.min(canvas.width, canvas.height) / 3.5; // Reduced for margin within frame
 
     ctx.beginPath();
     for (let x = -2; x <= 2; x += 0.01) {
