@@ -35,16 +35,16 @@ function drawHeart(kValue) {
     ctx.strokeStyle = "#ff0066";
     ctx.lineWidth = 2;
 
-    const scale = Math.min(canvas.width, canvas.height) / 6; // Adjusted scale for better fit
+    const scale = Math.min(canvas.width, canvas.height) / 4; // Adjusted scale for better centering
 
     ctx.beginPath();
     for (let x = -2; x <= 2; x += 0.01) {
-        const xScaled = x * scale + canvas.width / 2;
+        const xScaled = x * scale + canvas.width / 2; // Center the graph horizontally
         const yValue =
             Math.pow(Math.abs(x), 2 / 3) +
             0.9 * Math.sin(kValue * x) * Math.sqrt(3 - x * x);
 
-        const yScaled = -yValue * scale + canvas.height / 2;
+        const yScaled = -yValue * scale + canvas.height / 2; // Center the graph vertically
 
         if (x === -2) {
             ctx.moveTo(xScaled, yScaled);
