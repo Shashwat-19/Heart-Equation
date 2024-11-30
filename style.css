@@ -13,11 +13,11 @@ body {
 /* Responsive Container */
 .container {
     position: relative;
-    width: 90%; /* Adjust width for responsiveness */
-    max-width: 500px; /* Smaller max size for better fitting */
-    aspect-ratio: 1; /* Keep square aspect ratio */
+    width: 95%; /* Increased width for responsiveness */
+    max-width: 550px; /* Broader max size */
+    aspect-ratio: 1; /* Maintain square shape */
     margin: auto;
-    padding-top: 30px; /* Add padding from the top */
+    padding-top: 30px; /* Top padding */
     box-sizing: border-box;
 }
 
@@ -41,9 +41,12 @@ canvas {
     font-size: 0.8rem;
 }
 
-/* Responsive Font Adjustments */
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust width for phones */
+    }
     .equation {
-        font-size: 0.7rem; /* Slightly smaller font for smaller devices */
+        font-size: 0.7rem; /* Adjust font size for phones */
     }
 }
